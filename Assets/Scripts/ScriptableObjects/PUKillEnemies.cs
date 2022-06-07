@@ -23,7 +23,7 @@ public class PUKillEnemies : ScriptableObject
 
     public Ease TextAnimation { get => textAnimation; }
     public TextDir TextDirection { get => textDirection; }
-    public bool KillAllEnemies { get => KillAllEnemies; }
+    public bool KillAllEnemies { get => killAllEnemies; }
     public int EnemiesToKill { get => enemiesToKILL; }
     public uint ScoreOnEATED { get => scoreOnEated; }
 }

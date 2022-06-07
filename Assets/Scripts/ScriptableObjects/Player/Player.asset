@@ -18,5 +18,5 @@ MonoBehaviour:
   dotsEaten: 0
   powerUpsEaten: 0
   ScoreToLevelUp: f4010000e8030000dc050000c4090000b80b0000ac0d0000a00f0000941100008813000010270000
-  playerLevel: 10
-  extraMovementSpeedPerLevel: 2
+  playerLevel: 1
+  extraMovementSpeedPerLevel: 1

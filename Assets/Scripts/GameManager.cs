@@ -191,7 +191,7 @@ public class GameManager : MonoBehaviour
         dotsEaten = 0;
         gameSessionScore = 0;
         //creating pool for dots
-        if (dotsPool.Count != 0)
+        if (dotsPool.Count == 0)
             KokoUtilities.CreatePoolForObject(dotPrefab, dotsPoolParent, dotsToEat, dotsPool);
         else if (dotsPool.Count < dotsToEat)
             KokoUtilities.CreatePoolForObject(dotPrefab, dotsPoolParent, dotsToEat - dotsPool.Count, dotsPool);
@@ -199,10 +199,11 @@ public class GameManager : MonoBehaviour
         //Create pool for UIText
         KokoUtilities.CreatePoolForObject(eatScoreTextPrefab, popUpPoolParent, 10, popUpTextPool);
         //creating pool for powerups
-        if (powerUpsPool.Count != 0)
+        if (powerUpsPool.Count == 0)
         {
             for (int x = 0; x < powerUpsPrefab.Count; x++)
             {
+              
                 KokoUtilities.CreatePoolForObject(powerUpsPrefab[x], powerUpsPoolParent, maxPowerUps, powerUpsPool);
             }
 
@@ -216,7 +217,7 @@ public class GameManager : MonoBehaviour
         }
 
         //create pool for enemies
-        if (enemiesPool.Count != 0)
+        if (enemiesPool.Count == 0)
         {
             KokoUtilities.CreatePoolForObject(enemiesPrefab, enemiesPoolParent, maxEnemiesOnScreen, enemiesPool);
         }
@@ -225,9 +226,9 @@ public class GameManager : MonoBehaviour
             KokoUtilities.CreatePoolForObject(enemiesPrefab, enemiesPoolParent, maxEnemiesOnScreen - enemiesPool.Count, enemiesPool);     
         }
 
-        SpawnEntity(dotsToEat, dotsPool);
-        SpawnEntity(maxEnemiesOnScreen, enemiesPool);
-        SpawnEntity(maxPowerUps, powerUpsPool);
+        SpawnEntity(dotsToEat, dotsPool,false);
+        SpawnEntity(maxEnemiesOnScreen, enemiesPool,false);
+        SpawnEntity(maxPowerUps, powerUpsPool,true);
 
         SpawnPlayer();
 
@@ -249,8 +250,10 @@ public class GameManager : MonoBehaviour
     }
 
     //Check entities TO spawn
-    void SpawnEntity(int amount, List<Transform> pool)
+    void SpawnEntity(int amount, List<Transform> pool, bool spawnsDiferentObjects)
     {
+        if (spawnsDiferentObjects)
+            amount += amount;
         for (int x = 0; x < amount; x++)
         {
             if (!pool[x].gameObject.activeSelf)
