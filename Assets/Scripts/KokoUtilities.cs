@@ -46,19 +46,6 @@ namespace Koko.Utilities
           
         }
 
-        //Creates a text for some time and a direction to move
-       /* public static void CreateWorldText(Vector3 pos, float duration, TextDir direction)
-        {
-
-        }
-
-        //Creates a text for some time 
-        public static void CreateWorldText(Vector3 pos, float duration)
-        {
-
-        }*/
-
-
         //Creates a pool for said object
         public static void CreatePoolForObject(GameObject prefab, Transform target, int amount, List<Transform> targetList)
         {
